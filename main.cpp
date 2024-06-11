@@ -22,7 +22,7 @@ int main(){
     vector<Card> deck = shuffle(createDeck());
 
     //create vector of players
-    //vector<Player> playerList;
+    vector<Player> playerList;
 
     //print deck
     for (auto& card : deck) {
@@ -30,7 +30,7 @@ int main(){
     }
 
     Player();
-    /*
+    
     playerList.push_back(Player());//create null player
     playerList.push_back(Player("Beyn", Card("Hearts", "2"), Card("Spades", "7")));
 
@@ -38,7 +38,7 @@ int main(){
     for (auto& player : playerList) {
         cout << player.printPlayer() + "\n";
     }
-    */
+    
 };
 
 // random generator function seed //randomizes based on time of compilation

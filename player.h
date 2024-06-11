@@ -1,15 +1,13 @@
 //player class, has name and hand(two cards)
 using namespace std;
-#include <string>
 
-#include "card.h"
 
 class Player{
     public:
         Player();
-        //Player(string name, Card card1, Card card2);
+        Player(string name, Card card1, Card card2);
 
-        //string printPlayer();
+        string printPlayer();
 
     private:
         string name;
@@ -24,15 +22,15 @@ Player::Player(){
     card2;
 }
 
-// Player::Player(string n, Card c1, Card c2){
-//     name = n;
-//     card1 = c1;
-//     card2 = c2;
+Player::Player(string n, Card c1, Card c2){
+    name = n;
+    card1 = c1;
+    card2 = c2;
 
-// }
+}
 
 
-// string Player::printPlayer(){
-//     return "Player " + name + "has the " + card1.getValue() + " of " + card1.getSuit() + " and the " + card2.getValue() + " of " + card2.getSuit();
-//     //return "Player " + name + " has the" + card1.showCard() + " and the " + card2.showCard();
-// }
+string Player::printPlayer(){
+    return "Player " + name + " has the " + card1.getValue() + " of " + card1.getSuit() + " and the " + card2.getValue() + " of " + card2.getSuit();
+    //return "Player " + name + " has the " + card1.showCard() + " and the " + card2.showCard();
+}
