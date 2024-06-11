@@ -9,7 +9,7 @@
 #include "card.h"
 #include "player.h"
 
-using namespace std;
+using namespace std; //beans
 
 //function prototypes
 int randomfunc(int);
