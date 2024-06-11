@@ -48,67 +48,23 @@ int randomfunc(int j) {
 
 vector<Card> createDeck(){
     vector<Card> currentDeck;
-     //add cards for each suit
-    //hearts
-    for(int i = 1; i < 14; i ++){
-        if(i == 1) currentDeck.push_back(Card("Hearts", "Ace")); //ace
+    vector<string> suits;
+    suits = {"Hearts", "Diamonds", "Spades", "Clubs"};
+    for(int x = 0; x < suits.size(); x++){
+        for(int i = 1; i < 14; i ++){
+            if(i == 1) currentDeck.push_back(Card(suits[x], "Ace")); //ace
 
-        else if(i == 11)currentDeck.push_back(Card("Hearts", "Jack")); //jack
+            else if(i == 11)currentDeck.push_back(Card(suits[x], "Jack")); //jack
 
-        else if(i == 12)currentDeck.push_back(Card("Hearts", "Queen")); //queen
+            else if(i == 12)currentDeck.push_back(Card(suits[x], "Queen")); //queen
 
-        else if(i == 13)currentDeck.push_back(Card("Hearts", "King")); //king
+            else if(i == 13)currentDeck.push_back(Card(suits[x], "King")); //king
 
-        else {
-            currentDeck.push_back(Card("Hearts", to_string(i))); //adds a heart card from Ace to King (puts i to a char)
+            else {
+                currentDeck.push_back(Card(suits[x], to_string(i))); //adds a heart card from Ace to King (puts i to a char)
+            }
         }
     }
-
-    //diamonds
-    for(int i = 1; i < 14; i ++){
-        if(i == 1) currentDeck.push_back(Card("Diamonds", "Ace")); //ace
-
-        else if(i == 11)currentDeck.push_back(Card("Diamonds", "Jack")); //jack
-
-        else if(i == 12)currentDeck.push_back(Card("Diamonds", "Queen")); //queen
-
-        else if(i == 13)currentDeck.push_back(Card("Diamonds", "King")); //king
-
-        else {
-            currentDeck.push_back(Card("Diamonds", to_string(i))); //adds a diamond card from Ace to King (puts i to a char)
-        }
-    }
-
-    //spades
-    for(int i = 1; i < 14; i ++){
-        if(i == 1) currentDeck.push_back(Card("Spades", "Ace")); //ace
-
-        else if(i == 11)currentDeck.push_back(Card("Spades", "Jack")); //jack
-
-        else if(i == 12)currentDeck.push_back(Card("Spades", "Queen")); //queen
-
-        else if(i == 13)currentDeck.push_back(Card("Spades", "King")); //king
-
-        else {
-            currentDeck.push_back(Card("Spades", to_string(i))); //adds a diamond card from Ace to King (puts i to a char)
-        }
-    }
-
-    //clubs
-    for(int i = 1; i < 14; i ++){
-        if(i == 1) currentDeck.push_back(Card("Clubs", "Ace")); //ace
-
-        else if(i == 11)currentDeck.push_back(Card("Clubs", "Jack")); //jack
-
-        else if(i == 12)currentDeck.push_back(Card("Clubs", "Queen")); //queen
-
-        else if(i == 13)currentDeck.push_back(Card("club", "King")); //king
-
-        else {
-            currentDeck.push_back(Card("Clubs", to_string(i))); //adds a diamond card from Ace to King (puts i to a char)
-        }
-    }
-
     return currentDeck;
 }
 
