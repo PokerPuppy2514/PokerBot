@@ -1,3 +1,2 @@
 # PokerBot
-Have you ever played Texas Hold'Em and thought to yourself: "oh chuckleshucks, 
-I wish I knew what were the odds of me catching the straight?" Well fear no more, because this handy dandy bot will do just that for you! Just type a lot of information and maybe even your pins on your opponents and see how impossible you getting a hand really is.
+Have you ever played Texas Hold ‘Em and thought to yourself: “Oh chuckleshucks, I wonder what the odds that my measly 2 4 off suit have of catching anything good?” Well, fear no more, because this handy dandy Poker Bot will tell you just that! All you have to do is log in your hand, maybe even some guesses on your enemies' hands and Peter the Poker Bot will spit out how improbable your doody hand has of catching anything.
