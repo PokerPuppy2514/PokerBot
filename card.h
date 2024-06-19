@@ -11,7 +11,7 @@ class Card
         string getValue();
         string showCard();
 
-    protected:
+    private:
         string suit;
         string value;
 

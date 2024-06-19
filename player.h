@@ -1,6 +1,5 @@
 //player class, has name and hand(two cards)
 using namespace std;
-#include <vector> 
 
 class Player{
     public:
@@ -34,25 +33,3 @@ string Player::printPlayer(){
     return "Player " + name + " has the " + card1.showCard() + " and the " + card2.showCard();
 }
 
-
-class Calc{
-    public:
-        Calc();
-        Calc(Player mainPlayer, vector<Player> currentPlayers, vector<Card> currentDeck);
-    
-    private:
-        Player mainPlayer;
-        vector<Player> currentPlayers;
-        vector<Card> currentDeck;
-};
-
-Calc::Calc(){
-    currentPlayers;
-    currentDeck;
-}
-
-Calc::Calc(Player mp, vector<Player> cp, vector<Card> cd){
-    mainPlayer = mp;
-    currentPlayers = cp;
-    currentDeck = cd;
-}

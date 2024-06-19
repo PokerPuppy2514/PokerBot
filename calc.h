@@ -1,7 +1,9 @@
+
 class Calc{
     public:
         Calc();
         Calc(Player mainPlayer, vector<Player> currentPlayers, vector<Card> currentDeck);
+
     
     private:
         Player mainPlayer;
