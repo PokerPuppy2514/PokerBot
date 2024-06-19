@@ -8,8 +8,8 @@
 
 #include "card.h"
 #include "player.h"
-
-using namespace std; //beans
+#include "calc.h"
+using namespace std; 
 
 //function prototypes
 int randomfunc(int);
