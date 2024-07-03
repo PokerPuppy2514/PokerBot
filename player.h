@@ -8,6 +8,9 @@ class Player{
 
         string printPlayer();
 
+        Card getCard1();
+        Card getCard2();
+
     private:
         string name;
         Card card1;
@@ -28,6 +31,13 @@ Player::Player(string n, Card c1, Card c2){
 
 }
 
+Card Player::getCard1(){
+    return card1;
+}
+
+Card Player::getCard2(){
+    return card2;
+}
 
 string Player::printPlayer(){
     return "Player " + name + " has the " + card1.showCard() + " and the " + card2.showCard();

@@ -7,9 +7,13 @@ class Card
         Card();
         Card(string suit, string value);
 
-        string getSuit();
-        string getValue();
+        string getSuit()const;
+        string getValue()const;
         string showCard();
+
+        bool operator==(const Card& otherCard)const{
+            return ((suit == otherCard.getSuit()) && value == otherCard.getValue());
+        }
 
     private:
         string suit;
@@ -28,11 +32,11 @@ Card::Card(){
     value = v;
 }
 
-string Card::getSuit(){ 
+string Card::getSuit() const{ 
     return suit;
 }
 
-string Card::getValue(){ 
+string Card::getValue() const{ 
     return value;
 }
 
