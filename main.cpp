@@ -12,8 +12,7 @@ using namespace std;
 
 /*
 TODO: 
-figure out how to remove specific cards and choose cards for player(should be in main method)
-MAYBE? figure out how to remove cards through pass by reference(so you can permenantly remove cards and such)
+figure out how to calc trips
 */
 
 
@@ -23,6 +22,7 @@ vector<Card> createDeck();
 vector<Card> shuffle(vector<Card>);
 vector<Card> draw(vector<Card>);
 string calcPair(Player mainPlayer, vector<Card> &currentDeck);
+string calcTrip(Player mainPlayer, vector<Card> &currentDeck);
 void  removeSpecificCard(Card, vector<Card>&);
 
 int main(){
@@ -113,6 +113,7 @@ string calcPair(Player mainPlayer, vector<Card> &currentDeck){
     //ecounter for useful cards
     int count = 0;
 
+    //loop to find outs
     for(Card currentCard : currentDeck){
         //error message if matches suit AND VALUE and handles accordingly
         if(currentCard == mainPlayer.getCard1() || currentCard == mainPlayer.getCard2()){
@@ -121,19 +122,60 @@ string calcPair(Player mainPlayer, vector<Card> &currentDeck){
 
         //matches by value
         else if(currentCard.getValue() == mainPlayer.getCard1().getValue() || currentCard.getValue() == mainPlayer.getCard2().getValue()){
-            cout << "card found" << endl;
+            //cout << "card found" << endl;
             count++;
         }
     }
 
-    double d = static_cast<double>(count);
-    double deckSize = static_cast<double>(currentDeck.size());
+    //unit tests
+     cout << "useful cards: " << count << endl;
+     cout << "deck size: " << currentDeck.size() << endl;
 
-    double answer = (d / 50.0) * 100;
-    return to_string(answer) + "% chance to get a pair"; //returns a percentage
+    double usefulCards = static_cast<double>(count);
+    const double deckSize = static_cast<double>(currentDeck.size());
 
+    //calculate the amount of cards that would break a pair(ie. trips or quads) and discludes from the deck
+    double untakenCards = deckSize - usefulCards;
+    cout << "untakenCards: " << untakenCards << endl;
+
+
+    //flop permutation for numer (starts off with currentDeck -1 and goes 2 slots down)
+    double numer = 1;
+    for(int i = 0; i < 2; i++){
+        numer *= untakenCards - i;
+        //cout << "numer: " << numer << endl;
+    }
+
+    //flop permutation for denom(starts off with currentDeck and goes 3 slots down)
+    double denom = 1;
+    for(int i = 0; i < 3; i++){
+        denom *= deckSize - i;
+        //cout <<"denom:" << denom << endl;
+    }
+
+     double answerFlop = ((usefulCards * 3 * numer) / denom) * 100; //multiplies by amount of outs, 3 possible slots where the pair can hit, and by 100 for percentage
+    
+    //river permutation for numerator(starts off with currentDeck -1 and goes 4 slots down)
+    numer = 1; 
+    for(int i = 0; i < 4; i++){
+        numer *= untakenCards - i;
+    }
+
+    //river permutation for denom(starts off with currentDeck and goes 5 slots down)
+    denom = 1;
+    for(int i = 0; i < 5; i++){
+        denom *= deckSize - i;
+    }
+
+    double answerRiver = ((usefulCards * 5 * numer) / denom) * 100; //multiplies by amount of outs, 5 possible slots where the pair can hit, and by 100 for percentage
+
+    return to_string(answerFlop) + "% chance to get only a pair by flop" + "\n" + to_string(answerRiver) + "% chance to get only a pair by river"; //returns the amount of useful cards in the deck that work divided by the total amount of cards 
 }
 
+//calculate catching a triplet
+string calcTrip(Player mainPlayer, vector<Card> &currentDeck){
+    
+}
 
 //erases specific card from deck.
 void removeSpecificCard(Card badCard, vector<Card>& badDeck){
